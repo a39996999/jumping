@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block title %}<title>簡介</title>{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+  <!-- navbar -->
+  <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <!-- Add additional CSS in static file -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/login_style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/w3.css' %}">
+  <link rel="stylesheet" href="{% static 'css/css.css' %}">
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+</head>
+
+<style>
+div a{
+	font-size: 20px;
+	color: #909090;
+	font-family:DFKai-sb;
+}
+</style>
+<body>
+
+<div class="header">
+	<!-- <div class="row"> -->
+	<!-- 	<ul id="header-menu" class="list-reset">
+			<li style="width:130px; text-align:center"><a href="{% url 'index' %}" style="font-family:fantasy"><i class="fa fa-home"> Jumpy</i></a>
+			<!-- <li><a href="{% url 'introduction_page'%}">簡介</a></li> 
+			<!-- <li><a href="{% url 'counting_principle' %}">計數原理</a></li> 
+			{% if request.session.is_login %}
+			<li><a href="{% url 'students' %}">排行榜</a></li>
+			<li><a href="{% url 'personal_page' %}">個人頁面</a></li>
+			<!--<li><a href="">記分板</a></li>
+			{% endif %}
+		</ul>
+		
+		{% if request.session.is_login %}
+		<ul id="header-menu" class="list-reset" style="margin-left: auto; order: 2;">
+			<li><a href="{% url 'logout' %}"><i class="fa fa-user"> {{ request.session.username }}</i> 登出</a></li>
+		</ul>
+		{% endif %}
+		{% if not request.session.is_login %}
+		<ul id="header-menu" class="list-reset" style="margin-left: auto; order: 2;">
+			<li><a href="{% url 'login' %}"><i class="fa fa-user"></i> 登入</a></li>
+		</ul>
+		{% endif %} 
+		
+	-->	
+		<!-- Navbar (sit on top) -->
+<div class="w3-top" style="background: #262829; height: 50px;">
+  <div class="w3-bar" id="myNavbar" style="color: #909090;">
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="{% url 'index' %}" class="w3-bar-item w3-button" style="color: #909090;"><i class="fa fa-home"> Jumpy </i></a>
+	{% if request.session.is_login %}
+    <a href="{% url 'students' %}" class="w3-bar-item w3-button w3-hide-small" style="color: #909090;"><i class="fa fa-flag"></i> 排行榜</a>
+    <a href="{% url 'personal_page' %}" class="w3-bar-item w3-button w3-hide-small" style="color: #909090;"><i class="fa fa-user"></i> 個人頁面 </a>
+	
+	<!-- <p>{{ request.session.username }}你好, </p> -->
+	<a href="{% url 'logout' %}" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red" style="color: #909090;">
+     <i class="fa fa-sign-out"></i> 登出
+    </a>
+	{% endif %}
+	
+	{% if not request.session.is_login %}
+	<a href="{% url 'login' %}" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red" style="color: #909090;">
+	   <i class="fa fa-sign-in"></i> 登入
+	</a>
+	{% endif %} 
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    {% if request.session.is_login %}
+    <a href="{% url 'students' %}" class="w3-bar-item w3-button" onclick="toggleFunction()"><i class="fa fa-flag"></i> 排行榜</a>
+    <a href="{% url 'personal_page' %}" class="w3-bar-item w3-button" onclick="toggleFunction()"><i class="fa fa-user"></i> 個人頁面</a>
+    <a href="{% url 'logout' %}" class="w3-bar-item w3-button" onclick="toggleFunction()"><i class="fa fa-sign-out"></i> 登出</a>
+	{% endif %}
+	{% if not request.session.is_login %}
+	<a href="{% url 'logout' %}" class="w3-bar-item w3-button" onclick="toggleFunction()"><i class="fa fa-sign-in"></i> 登入</a>
+	{% endif %} 
+  </div>
+</div>
+<!-- </div>	 -->
+</div>
+
+
+<div class="content">
+	<div class="left_side"></div>
+	<div class="cent_side">
+		{% block content %}{% endblock %}
+	</div>
+	<div class="right_side"></div>
+</div>
+<div class="footer">
+	<div class="container">
+		<p class="footer-text">Copyright © 2021 JumpyGroup All Rights Reserved.</p>
+	</div>
+</div>
+
+<script>
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+// Change style of navbar on scroll
+window.onscroll = function() {myFunction()};
+function myFunction() {
+    var navbar = document.getElementById("myNavbar");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + "";
+    } else {
+        navbar.className = navbar.className.replace(" w3-card w3-animate-top ", "");
+    }
+}
+
+// Used to toggle the menu on small screens when clicking on the menu button
+
+function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } 
+	else {
+	 x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+
+
+
+</body>
+</html>

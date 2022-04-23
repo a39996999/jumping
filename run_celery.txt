@@ -1,0 +1,4 @@
+啟動
+celery -A  jumping_site worker -l info -c 4
+刪除所有task
+celery -A proj purge

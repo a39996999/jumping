@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block title %}<title>計數原理</title>{% endblock %}
+{% block content %}
+  <h1>計數原理</h1>
+  <p>跳繩跳繩跳繩的計數原理 by <em>charlie lin</em></p>
+
+   <!-- The video tag: -->
+  {% load static %}
+  <video name='demo' controls autoplay width='50%' height='40%'>
+    <source src="{% static 'img/part1.mp4' %}"></source>
+  </video>
+  <!-- Or embed shortcut: -->
+  <marquee scrollamount="10">跳繩影片</marquee>
+{% endblock %}

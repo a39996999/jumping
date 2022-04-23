@@ -1,0 +1,21 @@
+<body>
+<h1 align="center" style="font-size:50px">上傳成功！</h1>
+<div align="center">
+<input type="button" onclick="javascript:location.href='../personal_page'" value="回到個人首頁" style="width:15%; height:5%; font-size:18px;"></input>
+</div>
+ <script>
+ var x=4;
+ window.onload=function () {
+   setInterval(go,1000)
+ };
+ 
+ function go() {
+   if (x>=0){
+     document.getElementById("sp").innerText=x;
+   }else {
+	 location.href="/catalog/personal_page.html" rel="external nofollow" rel="external nofollow" ;
+   }
+   x--;
+ }
+</script>
+</body>

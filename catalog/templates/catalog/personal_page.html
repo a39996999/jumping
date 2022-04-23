@@ -1,0 +1,47 @@
+{% extends "base_generic.html" %}
+
+{% block title %}<title>計數原理</title>{% endblock %}
+{% block content %}
+
+<style>
+body{
+	font-family:"DFKai-sb";
+	font-size:15pt;
+	text-align: center;
+	align-items:center;
+	justify-content:center;
+	background-color:#F0F0F0;
+}
+hr.style-seven {
+    overflow: visible; /* For IE */
+    height: 30px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+}
+hr.style-seven:before { /* Not really supposed to work, but does */
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: black;
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
+}
+</style>
+
+<body>
+	<h1 style="font-size:35pt">個人頁面</h1>
+	<div style="width:80%; margin:0 auto;"><hr class="style-seven"></hr></div>
+	<h1 style="font-size:40px"><em>請上傳您的跳繩影片</em></p>
+	<div>
+	<form enctype="multipart/form-data" action="{% url 'uploadFile' %}" method="post">{% csrf_token %}
+		<input type="file" name="myfile" style="text-align-last: center; width:100%;" />  
+		<br/>
+		<input type="submit" value="上傳"/>  
+	</form>
+	</div>	
+</body>
+{% endblock %}

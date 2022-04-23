@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+{% block title %}<title>首頁</title>{% endblock %}
+{% block content %}
+ 
+<style>
+body{
+	background-color: #F0F0F0	;
+}
+</style>
+  <em>
+  <h1>Go Jumping</h1>
+  <p>Welcome to our Jumping site, a website developed by <em>Jumpy group</em>!</p>
+
+  <h2>Dynamic content</h2>
+  <p>The Jumping site has the following record counts</p>
+  <ul>
+    <li><strong>num_students:</strong> {{ num_students }}</li>
+  </ul>
+  </em>
+  </body>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  
+<head> 
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/rank_style.css' %}">
+</head> 
+
+<style>
+body{
+	background-color: #F0F0F0	;
+	font-family:"DFKai-sb";
+}
+hr.style-seven {
+    overflow: visible; /* For IE */
+    height: 30px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+}
+hr.style-seven:before { /* Not really supposed to work, but does */
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: black;
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
+}
+</style>
+<body>
+ <h1 align="center" style="font-size:35pt">跳繩排行榜</h1>
+	<div style="width:80%; margin:0 auto;"><hr class="style-seven"></hr></div>
+  {% if student_list %}
+  <div class="table">
+   <table>
+    <thead>
+        <tr>
+			<th width="50">名次</th>
+            <th>學校</th>
+			<th>代號</th>
+			<th>姓名</th>
+			<th>跳繩次數</th>
+        </tr>
+    </thead>
+    <tbody>
+		{% for student in student_list %}
+        <tr>
+			<td>{{ forloop.counter }}</td>
+            <td>{{ student.school }}</td>
+            <td>{{ student.std_No }}</td>
+			<td>{{ student.name   }}</td>
+			<td>{{ student.score }}</td>
+        </tr>
+		{% endfor %}
+    </tbody>
+   </table>
+  </div>
+  {% else %}
+    <p>There are no books in the library.</p>
+  {% endif %}
+  
+{% endblock %}
+</body>

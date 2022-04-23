@@ -1,0 +1,25 @@
+
+.mylogin { 
+    width: 100%; 
+	border-radius: 10px;
+} 
+
+
+.box{
+    margin: 0 auto;
+    display: flex; 
+	align-items: center;
+    padding: 20px 50px;
+    background-color: 	rgba(0,0,0,0.65)	;
+    width: 400px;
+    height: 300px;
+    border-radius: 10px;
+    justify-content: center; 
+    vertical-align: middle;
+}
+.container{
+	display: flex; 
+	height:90%;
+	justify-content: center; 
+	align-items: center;
+}

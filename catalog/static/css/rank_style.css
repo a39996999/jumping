@@ -1,0 +1,36 @@
+
+table {
+  width: 70%;
+  background-color:#39545E;
+  border: 1px solid #39545E;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-left:auto; 
+  margin-right:auto;
+}
+
+.table th,
+.table td {
+  border: 1px solid #39545E;
+  padding: 10px 10px;
+}
+
+.table tr {
+  background-color: #fff;
+}
+
+.table thead tr {
+  text-align: center;
+  background-color: #39545E;
+  color: #fff;
+}
+
+.table tbody tr:hover {
+  background-color: #C6E9F7;
+}
+@media (max-width: 600px) {
+	table{
+		width: 100%;
+	}
+	
+}

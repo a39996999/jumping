@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>ScoreBoard</h1>
+  {% if student_list %}
+  <ul>
+    {% for student in student_list %}
+      <li>
+        <a>{{ student.school }} {{student.std_No}} {{student.name}} {{student.score}}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no books in the library.</p>
+  {% endif %} 
+{% endblock %}
