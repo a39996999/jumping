@@ -19,5 +19,5 @@ def task_count(username, Filename):
     else:
         return;
     score = counter.Counting(username+'/'+Filename)
-    student.objects.filter(std_No=username).update(score=score)
+    student.objects.filter(std_No=username).update(score=Int(score))
     return score

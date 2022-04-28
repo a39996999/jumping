@@ -44,6 +44,7 @@ def login(request):
         #print("student.objects.get(std_No==username):", student.objects.filter(std_No=username, passwd=passwd))
         print("student.objects.get(std_No==username):", student.objects.filter(std_No=username))
         try:
+            username = username.upper()
             student.objects.get(std_No=username)
             students = student.objects.get(std_No=username)
             request.session['is_login'] = True

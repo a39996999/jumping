@@ -83,7 +83,7 @@ DATABASES = {
         #'NAME': BASE_DIR / 'db.sqlite3',
         'ENGINE': 'djongo',
         'NAME': 'djongo_test',
-        'host': 'mongodb://120.125.88.83:27017/?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false',
+        'host': '192.168.50.93:8080'
         
     }
 }

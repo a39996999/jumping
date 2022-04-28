@@ -147,23 +147,26 @@ def Counting(video_path):
         frame_idx += 1
         pbar.update()
     list_area_NotSort=list_area.copy()
-    np_array=np.array(list_area)
+    if (list_area_NotSort):
+      np_array=np.array(list_area)
 
-    #if z_score < -1.645
-    #標準常態分布的機率值小於5%
-    #將其判斷為異常值扣除
-    z_score=preprocessing.scale(np_array, axis=0, with_mean=True, with_std=True, copy=True)
-    error=[i for i in z_score if i<-1.645]
-    print(len(error))
+      #if z_score < -1.645
+      #標準常態分布的機率值小於5%
+      #將其判斷為異常值扣除
+      z_score=preprocessing.scale(np_array, axis=0, with_mean=True, with_std=True, copy=True)
+      error=[i for i in z_score if i<-1.645]
+      print(len(error))
 
 
-     
-    print("=================================")
-    print("video counted")
-    print("=================================")    
-    # Close output video.
-    out_video.release()
+       
+      print("=================================")
+      print("video counted")
+      print("=================================")    
+      # Close output video.
+      out_video.release()
 
-    # Release MediaPipe resources.
-    pose_tracker.close()
-    return (count-len(error))
+      # Release MediaPipe resources.
+      pose_tracker.close()
+      return (count-len(error))
+
+    return Int(0)

@@ -33,9 +33,9 @@ hr.style-seven:before { /* Not really supposed to work, but does */
 </style>
 
 <body>
-	<h1 style="font-size:35pt">個人頁面</h1>
+	<h1 style="font-size:35pt">{{ request.session.name }}的個人頁面</h1>
 	<div style="width:80%; margin:0 auto;"><hr class="style-seven"></hr></div>
-	<h1 style="font-size:40px"><em>請上傳您的跳繩影片</em></p>
+	<h1 style="font-size:40px"><em>請上傳跳繩影片</em></p>
 	<div>
 	<form enctype="multipart/form-data" action="{% url 'uploadFile' %}" method="post">{% csrf_token %}
 		<input type="file" name="myfile" style="text-align-last: center; width:100%;" />  
